@@ -1,60 +1,69 @@
-Deriv WebSocket API Client
-This project demonstrates how to connect to the Deriv WebSocket API using Python. It uses the websocket library to establish a connection and listen for messages. The project also utilizes environment variables to store sensitive information, such as the authorization token.
+# Deriv WebSocket API Client
 
-Table of Contents
-Prerequisites
-Installation
-Usage
-Environment Variables
-WebSocket Events
-License
-Prerequisites
-Ensure you have the following installed on your system:
+A Python client for interacting with Deriv's WebSocket API.
 
-Python 3.x
-pip for installing packages
-Installation
-Clone the repository:
+## Prerequisites
 
-bash
-Copy code
+- Python 3.x
+- pip (Python package manager)
+
+## Installation
+
+```bash
 git clone <repository_url>
 cd <repository_directory>
-Install the required Python packages:
-
-bash
-Copy code
 pip install websocket-client python-dotenv
-Usage
-Set Up Your Environment Variables:
+```
 
-Create a .env file in the root directory of the project and add your Deriv API token:
+## Quick Start
 
-plaintext
-Copy code
+1. Create `.env` file:
+```plaintext
 DERIV_AUTH_TOKEN=your_auth_token_here
-Run the Application:
+```
 
-Execute the Python script to connect to the Deriv WebSocket API:
+2. Run the client:
+```bash
+python main.py
+```
 
-bash
-Copy code
-python <script_name>.py
-Replace <script_name> with the name of your Python script.
+## Features
 
-Listen for Messages:
+- Real-time WebSocket connection to Deriv API
+- Secure token management using environment variables
+- Event-based message handling
+- Error handling and connection management
 
-Once connected, the application will print received messages to the console.
+## WebSocket Events
 
-Environment Variables
-DERIV_AUTH_TOKEN: Your authorization token for connecting to the Deriv API. Ensure this is set correctly in your .env file.
-WebSocket Events
-on_open: Triggered when the connection to the WebSocket API is established.
-on_message: Triggered when a message is received from the WebSocket. The message will be printed to the console.
-on_error: Triggered when an error occurs. The error message will be printed to the console.
-on_close: Triggered when the WebSocket connection is closed.
-License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+| Event | Description |
+|-------|-------------|
+| on_open | Triggered when connection established |
+| on_message | Handles incoming WebSocket messages |
+| on_error | Manages connection errors |
+| on_close | Handles connection closure |
 
-Additional Notes
-Feel free to customize this README file according to your project's needs, such as adding more detailed usage examples, clarifying any setup instructions, or including troubleshooting tips. If you have any further questions or need additional modifications, let me know!
+## Environment Variables
+
+Required variables in `.env`:
+- `DERIV_AUTH_TOKEN`: Your Deriv API authorization token
+
+## Error Handling
+
+The client includes comprehensive error handling for:
+- Connection failures
+- Authentication errors
+- Invalid messages
+- Network interruptions
+
+## License
+
+MIT License. See [LICENSE](LICENSE) file.
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Submit pull request
+
+For detailed API documentation, visit [Deriv API docs](https://api.deriv.com).
